@@ -66,11 +66,6 @@ module Passbook
     private
 
     def checkPass manifest
-      # Check for default images. We need only one icon version (retina preferred)
-      raise 'At least one icon file required' if %w{icon.png icon@2x.png}.none? do |icon|
-        manifest.include?(icon)
-      end
-
       # Check for developer field in JSON
       raise 'Pass Type Identifier missing' unless @pass.include?('passTypeIdentifier')
       raise 'Team Identifier missing' unless @pass.include?('teamIdentifier')
